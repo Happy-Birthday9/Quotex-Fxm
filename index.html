@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Sureshot AI Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating AI Button -->
+    <button id="aiButton" onclick="openAnalyzer()">
+        <span class="robot">🤖</span>
+        <span>AI</span>
+    </button>
+
+
+    <!-- Analysis Panel -->
+    <div id="overlay" class="overlay">
+
+        <div class="panel">
+
+            <button class="close" onclick="closeAnalyzer()">×</button>
+
+            <div class="logo">
+                🤖
+            </div>
+
+            <h1>SURESHOT AI</h1>
+
+            <p class="subtitle">
+                Market Analysis
+            </p>
+
+
+            <!-- Pair -->
+            <div class="inputBox">
+
+                <label>Market Pair</label>
+
+                <select id="pair">
+                    <option value="GBP/NZD">GBP/NZD</option>
+                    <option value="EUR/USD">EUR/USD</option>
+                    <option value="GBP/USD">GBP/USD</option>
+                    <option value="USD/JPY">USD/JPY</option>
+                    <option value="EUR/GBP">EUR/GBP</option>
+                    <option value="AUD/USD">AUD/USD</option>
+                </select>
+
+            </div>
+
+
+            <!-- Timeframe -->
+            <div class="inputBox">
+
+                <label>Timeframe</label>
+
+                <select id="interval">
+                    <option value="1min">1 Minute</option>
+                    <option value="5min">5 Minutes</option>
+                    <option value="15min">15 Minutes</option>
+                </select>
+
+            </div>
+
+
+            <button
+                class="analyzeBtn"
+                onclick="analyzeMarket()"
+            >
+                🔍 ANALYZE MARKET
+            </button>
+
+
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                <div class="loader"></div>
+                <p>Analyzing market...</p>
+            </div>
+
+
+            <!-- Result -->
+            <div id="result" class="result">
+
+                <div class="pairName" id="resultPair">
+                    GBP/NZD
+                </div>
+
+                <div
+                    id="signal"
+                    class="signal"
+                >
+                    WAIT
+                </div>
+
+                <div class="confidence">
+                    Confidence:
+                    <strong id="confidence">
+                        --
+                    </strong>
+                </div>
+
+
+                <div class="stats">
+
+                    <div>
+                        <span>Trend</span>
+                        <strong id="trend">--</strong>
+                    </div>
+
+                    <div>
+                        <span>RSI</span>
+                        <strong id="rsi">--</strong>
+                    </div>
+
+                    <div>
+                        <span>EMA</span>
+                        <strong id="ema">--</strong>
+                    </div>
+
+                    <div>
+                        <span>Momentum</span>
+                        <strong id="momentum">--</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="warning">
+                    ⚠️ Analysis only. Trade manually.
+                </div>
+
+            </div>
+
+
+            <div id="error" class="error"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+                                                     </html>
