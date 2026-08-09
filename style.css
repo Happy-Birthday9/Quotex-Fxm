@@ -1,1 +1,532 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #063d2d,
+            #020b09 45%,
+            #010303
+        );
+
+    color: white;
+}
+
+
+/* =========================
+   FLOATING AI BUTTON
+========================= */
+
+#aiButton {
+
+    position: fixed;
+
+    right: 18px;
+    bottom: 90px;
+
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    border: 3px solid #18ff8a;
+
+    background:
+        radial-gradient(
+            circle,
+            #0d5f3c,
+            #021b12
+        );
+
+    color: white;
+
+    z-index: 99999;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px #00ff88,
+        0 0 35px rgba(0,255,130,.5);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation: pulse 2s infinite;
+}
+
+.robot {
+    font-size: 28px;
+}
+
+#aiButton span:last-child {
+    font-size: 12px;
+    font-weight: bold;
+    color: #00ff91;
+}
+
+
+@keyframes pulse {
+
+    0% {
+        box-shadow:
+            0 0 10px #00ff88;
+    }
+
+    50% {
+        box-shadow:
+            0 0 25px #00ff88,
+            0 0 50px rgba(0,255,130,.6);
+    }
+
+    100% {
+        box-shadow:
+            0 0 10px #00ff88;
+    }
+
+}
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.78);
+
+    backdrop-filter: blur(8px);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 99998;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   PANEL
+========================= */
+
+.panel {
+
+    width: 100%;
+
+    max-width: 390px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #071c16,
+            #020907
+        );
+
+    border: 1px solid
+        rgba(0,255,130,.35);
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    position: relative;
+
+    box-shadow:
+        0 0 40px
+        rgba(0,255,130,.2);
+
+    animation: popup .25s ease;
+}
+
+
+@keyframes popup {
+
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+
+/* Close */
+
+.close {
+
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+/* Logo */
+
+.logo {
+
+    width: 75px;
+    height: 75px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 38px;
+
+    background: #031a10;
+
+    border: 2px solid #00ff88;
+
+    box-shadow:
+        0 0 25px
+        rgba(0,255,130,.6);
+}
+
+
+h1 {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 25px;
+
+    letter-spacing: 2px;
+
+    color: #00ff88;
+}
+
+
+.subtitle {
+
+    text-align: center;
+
+    color: #9db9ac;
+
+    margin-top: 5px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.inputBox {
+
+    margin-bottom: 12px;
+}
+
+.inputBox label {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: #9db9ac;
+
+    margin-bottom: 5px;
+}
+
+select {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    border: 1px solid
+        rgba(0,255,130,.3);
+
+    background: #071a13;
+
+    color: white;
+
+    outline: none;
+}
+
+
+/* =========================
+   ANALYZE BUTTON
+========================= */
+
+.analyzeBtn {
+
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00b85c,
+            #00ff88
+        );
+
+    color: #00150b;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px
+        rgba(0,255,130,.35);
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 25px 0;
+
+    color: #8cffc4;
+}
+
+.loader {
+
+    width: 35px;
+    height: 35px;
+
+    border: 4px solid
+        rgba(0,255,130,.2);
+
+    border-top-color:
+        #00ff88;
+
+    border-radius: 50%;
+
+    margin: auto;
+
+    animation:
+        spin .8s linear infinite;
+}
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result {
+
+    display: none;
+
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+
+.pairName {
+
+    font-size: 16px;
+
+    color: #b7cfc3;
+
+    margin-bottom: 8px;
+}
+
+
+.signal {
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    margin: 5px 0;
+
+    text-shadow:
+        0 0 15px currentColor;
+}
+
+
+.signal.up {
+
+    color: #00ff88;
+}
+
+
+.signal.down {
+
+    color: #ff4d5d;
+}
+
+
+.signal.wait {
+
+    color: #ffd45c;
+}
+
+
+.confidence {
+
+    color: #a8bbb1;
+
+    margin-bottom: 20px;
+}
+
+
+.confidence strong {
+
+    color: white;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.stats div {
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.stats span {
+
+    display: block;
+
+    color: #82968b;
+
+    font-size: 11px;
+
+    margin-bottom: 5px;
+}
+
+
+.stats strong {
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   WARNING
+========================= */
+
+.warning {
+
+    margin-top: 18px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,190,0,.08);
+
+    color: #ffd45c;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,0,50,.1);
+
+    color: #ff7180;
+
+    font-size: 12px;
+
+    text-align: center;
+          }
